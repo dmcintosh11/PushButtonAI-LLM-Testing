@@ -3,7 +3,7 @@ from awq import AutoAWQForCausalLM
 from transformers import AutoTokenizer
 import sys, getopt
 
-def quantize_mod(model_path, quant_path)
+def quantize_mod(model_path, quant_path):
     quant_config = { "zero_point": True, "q_group_size": 128, "w_bit": 4, "version": "GEMM" }
 
     # Load model
