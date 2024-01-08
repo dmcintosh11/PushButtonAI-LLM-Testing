@@ -50,7 +50,7 @@ def download(argv):
     if single_mod:
         download_mod(hf_path, models_dir)
 
-    install_requirements()
+    #install_requirements()
     
     mixtral_hf = 'mistralai/Mixtral-8x7B-v0.1'
     models_dir = vol_dir + '/models/'
