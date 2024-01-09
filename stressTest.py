@@ -3,13 +3,13 @@ import threading
 import sys, getopt
 import pandas as pd
 
-global generation_data
 
 def get_query(mod, i, prompt, do_print=True):
     res, query_time = mod.query(i, prompt, do_print)
     generation_data.append({'index':i, 'response':res, 'query_time':query_time})
 
 def stress_test(argv):
+    global generation_data
     generation_data = []
 	
     mod_dir = '/mnt/MixtralVolume/Mixtral-8x7B-Instruct-v0.1/'
