@@ -20,4 +20,4 @@ def quantize_mod(model_path, quant_path):
     model.save_quantized(quant_path)
     tokenizer.save_pretrained(quant_path)
 
-quantize_mod('mistral/Mixtral-8x7B-Instruct-v0.1', '/workspace/models/Mixtral-8x7B-Instruct-v0.1-QUANT-4/')
+quantize_mod('mistralai/Mixtral-8x7B-Instruct-v0.1', '/workspace/models/Mixtral-8x7B-Instruct-v0.1-QUANT-4/')
