@@ -25,6 +25,8 @@ def install_requirements():
 def download_mod(hf_path, models_dir):
 
     dest_path = models_dir + hf_path
+    print(dest_path)
+    print()
     call(['mkdir', dest_path])
     call(['huggingface-cli', 'download', hf_path, '--local-dir', dest_path, '--local-dir-use-symlinks', 'False'])
 
