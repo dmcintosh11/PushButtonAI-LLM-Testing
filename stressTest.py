@@ -42,7 +42,7 @@ def stress_test(argv):
             ]
     else:
         prompt_df = pd.read_csv(prompt_dir)
-	prompt_df = prompt_df.iloc[:4]
+        prompt_df = prompt_df.iloc[:4]
         prompts = prompt_df['prompts']
     
 
