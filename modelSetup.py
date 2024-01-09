@@ -1,4 +1,5 @@
 from torch import bfloat16
+import torch
 import transformers
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import time
