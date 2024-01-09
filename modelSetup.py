@@ -37,7 +37,7 @@ class ModLoader():
 
         formatted_prompt = self.format_prompt(prompt)
             
-        res = self.model.query(formatted_prompt)
+        res = self.model.query(formatted_prompt, 500)
 
         generated_time = time.time()
 
