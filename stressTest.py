@@ -12,7 +12,7 @@ def stress_test(argv):
     global generation_data
     generation_data = []
 	
-    mod_dir = '/mnt/MixtralVolume/Mixtral-8x7B-Instruct-v0.1/'
+    mod_dir = '/workspace/models/Mixtral-8x7B-Instruct-v0.1/'
     quantization = '16b'
     prompt_dir = ''
 
