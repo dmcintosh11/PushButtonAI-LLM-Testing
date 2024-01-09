@@ -1,6 +1,6 @@
 from torch import bfloat16
 import transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import time
 from vllm import LLM, SamplingParams
 
