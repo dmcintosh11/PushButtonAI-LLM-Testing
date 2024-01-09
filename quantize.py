@@ -11,7 +11,7 @@ def quantize_mod(model_path, quant_path):
 
     # Load model
     model = AutoAWQForCausalLM.from_pretrained(model_path, **{"low_cpu_mem_usage": True})
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 
     # Quantize
     model.quantize(tokenizer, quant_config=quant_config)
@@ -20,4 +20,4 @@ def quantize_mod(model_path, quant_path):
     model.save_quantized(quant_path)
     tokenizer.save_pretrained(quant_path)
 
-quantize_mod('/workspace/models/Mixtral-8x7B-Instruct-v0.1', '/workspace/models/Mixtral-8x7B-Instruct-v0.1-QUANT-4/')
+quantize_mod('mistral/Mixtral-8x7B-Instruct-v0.1', '/workspace/models/Mixtral-8x7B-Instruct-v0.1-QUANT-4/')
