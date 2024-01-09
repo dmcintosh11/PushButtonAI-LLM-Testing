@@ -2,6 +2,9 @@ from subprocess import call
 from awq import AutoAWQForCausalLM
 from transformers import AutoTokenizer
 import sys, getopt
+import os
+
+
 
 def quantize_mod(model_path, quant_path):
     quant_config = { "zero_point": True, "q_group_size": 128, "w_bit": 4, "version": "GEMM" }
@@ -28,14 +31,15 @@ def download_mod(hf_path, models_dir):
     print(dest_path)
     print()
     call(['mkdir', dest_path])
-    call(['huggingface-cli', 'download', hf_path, '--local-dir', dest_path, '--local-dir-use-symlinks', 'False'])
+    call(['huggingface-cli', 'download', hf_path, '--cache-dir', dest_path, '--local-dir-use-symlinks', 'False'])
 
 
 def download(argv):
     
     single_mod = False
     hf_path = ''
-
+    vol_dir = '/workspace/models'
+    
     #Parses command line arguments
     opts, args = getopt.getopt(argv, 'hv:m:',['vol_dir', 'hf_path='])
     for opt, arg, in opts:
@@ -53,6 +57,9 @@ def download(argv):
         download_mod(hf_path, models_dir)
 
     #install_requirements()
+
+    os.environ['TRANSFORMERS_CACHE'] = vol_dir
+    call(['export', 'TRANSFORMERS_CACHE='+vol_dir])
     
     mixtral_hf = 'mistralai/Mixtral-8x7B-v0.1'
     models_dir = vol_dir + '/models/'
